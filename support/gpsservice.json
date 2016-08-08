@@ -3,8 +3,6 @@
     "apiVersion": "v1",
     "metadata": {
         "name": "gpsservice",
-        "namespace": "fisdemo",
-        "selfLink": "/oapi/v1/namespaces/fisdemo/templates/gpsservice",
         "uid": "a47c2162-553b-11e6-a01f-525400ac6ae1",
         "resourceVersion": "1183",
         "creationTimestamp": "2016-07-29T03:22:13Z",
@@ -70,34 +68,6 @@
             }
         },
         {
-            "kind": "Route",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "${APP_NAME}",
-                "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                "labels": {
-                    "app": "${APP_NAME}",
-                    "component": "${APP_NAME}",
-                    "container": "java",
-                    "group": "fisworkshop",
-                    "project": "${APP_NAME}",
-                    "provider": "fabric8",
-                    "version": "1.0.0-SNAPSHOT"
-                },
-                "annotations": {
-                    "openshift.io/host.generated": "true"
-                }
-            },
-            "spec": {
-                "host": "${SERVICE_NAME}-${IMAGE_STREAM_NAMESPACE}.rhel-cdk.10.1.2.2.xip.io",
-                "to": {
-                    "kind": "Service",
-                    "name": "${SERVICE_NAME}"
-                }
-            },
-            "status": {}
-        },
-        {
       "kind": "BuildConfig",
       "apiVersion": "v1",
       "metadata": {
@@ -147,7 +117,6 @@
           "sourceStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "namespace": "${IMAGE_STREAM_NAMESPACE}",
               "name": "fis-java-openshift:${BUILDER_VERSION}"
             },
             "incremental": true,

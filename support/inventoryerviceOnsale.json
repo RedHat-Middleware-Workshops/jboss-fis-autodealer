@@ -2,16 +2,14 @@
     "kind": "Template",
     "apiVersion": "v1",
     "metadata": {
-        "name": "inventoryerviceOnsale",
-        "namespace": "fisdemo",
-        "selfLink": "/oapi/v1/namespaces/fisdemo/templates/inventoryerviceOnsale",
+        "name": "inventoryserviceonsale",
         "uid": "ec87057c-553a-11e6-a01f-525400ac6ae1",
         "resourceVersion": "1093",
         "creationTimestamp": "2016-07-29T03:17:04Z",
         "annotations": {
             "description": "Camel route using Spring XML in a standalone Java container",
-            "fabric8.inventoryerviceOnsale/iconUrl": "https://cdn.rawgit.com/fabric8io/fabric8/master/fabric8-maven-plugin/src/main/resources/icons/camel.svg",
-            "fabric8.inventoryerviceOnsale/summary": "Camel route using Spring XML in a standalone Java container"
+            "fabric8.inventoryserviceonsale/iconUrl": "https://cdn.rawgit.com/fabric8io/fabric8/master/fabric8-maven-plugin/src/main/resources/icons/camel.svg",
+            "fabric8.inventoryserviceonsale/summary": "Camel route using Spring XML in a standalone Java container"
         }
     },
     "objects": [
@@ -70,34 +68,6 @@
             }
         },
         {
-            "kind": "Route",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "${APP_NAME}",
-                "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                "labels": {
-                    "app": "${APP_NAME}",
-                    "component": "${APP_NAME}",
-                    "container": "java",
-                    "group": "fisworkshop",
-                    "project": "${APP_NAME}",
-                    "provider": "fabric8",
-                    "version": "${APP_VERSION}"
-                },
-                "annotations": {
-                    "openshift.io/host.generated": "true"
-                }
-            },
-            "spec": {
-                "host": "${SERVICE_NAME}-${IMAGE_STREAM_NAMESPACE}.rhel-cdk.10.1.2.2.xip.io",
-                "to": {
-                    "kind": "Service",
-                    "name": "${SERVICE_NAME}"
-                }
-            },
-            "status": {}
-        },
-        {
       "kind": "BuildConfig",
       "apiVersion": "v1",
       "metadata": {
@@ -147,7 +117,6 @@
           "sourceStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "namespace": "${IMAGE_STREAM_NAMESPACE}",
               "name": "fis-java-openshift:${BUILDER_VERSION}"
             },
             "incremental": true,
@@ -297,7 +266,7 @@
     "parameters": [
     	{
       "name": "APP_NAME",
-      "value": "inventoryerviceOnsale",
+      "value": "inventoryserviceonsale",
       "description": "Application Name"
     	},
     	{
@@ -319,7 +288,7 @@
     	},
     	{
     	  "name": "SERVICE_NAME",
-    	  "value": "inventoryerviceOnsale",
+    	  "value": "inventoryserviceonsale",
     	  "description": "Exposed Service name"
     	},
     	{

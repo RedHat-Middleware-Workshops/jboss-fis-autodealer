@@ -26,7 +26,6 @@
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
 	
-	<bean id="opportunityGenerator" class="com.redhat.fis.dms.mockprocessor.OpportunityGenerator"></bean>
 	<bean id="dozer" class="org.apache.camel.converter.dozer.DozerTypeConverterLoader"></bean>
   
   <camelContext xmlns="http://camel.apache.org/schema/spring">
