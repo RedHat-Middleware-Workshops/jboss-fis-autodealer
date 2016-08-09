@@ -40,7 +40,8 @@
       <json prettyPrint="true" library="Jackson"/>
     </marshal>
   </route>
- 
+  <route id="inputReport">
+  </route>
 </camelContext>
 
 </beans>
